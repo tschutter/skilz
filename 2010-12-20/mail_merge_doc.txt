@@ -1,0 +1,9 @@
+Hello $1 $2,
+
+Do you {wish} that you had a $3 $4?
+We have the leading natural product for you!
+Miracle-$5 will make your $4 just the right size!
+The $6 will be IMPRESSED!
+For a low low price of $$7, you are sure to be satisfied!
+
+Brought to you by $0
