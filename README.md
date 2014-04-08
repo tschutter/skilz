@@ -1,4 +1,0 @@
-skillz
-======
-
-Programming puzzles
