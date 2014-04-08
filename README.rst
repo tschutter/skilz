@@ -221,6 +221,28 @@ Requirement: Given a word or phrase, report whether or not it's an
 isogram by the first definition above. Bonus: test for the second
 definition.
 
+2011-04-30
+----------
+
+Say you have a grid where each square is denoted by a row and column
+(aka a 'Google tile'), like this:
+
+.. image:: 2011-04-30/row-col.jpg
+
+Now another way to denote each square in the grid is to use a quadkey
+(a la Microsoft Bing), which looks like this:
+
+.. image:: 2011-04-30/quadkey.jpg
+
+Write code that translates from the row, column to the quadkey and
+from a quadkey to row, column at all resolution levels from 1 to 23
+(best available from Microsoft tile servers).  Assume that the size of
+the tiles is the same at each resolution level.  In other words, if
+you had a Bing quadkey at level 3, this would correspond to the tile
+map at the top of this email which is 8x8.
+
+Hint: there are a number of solutions.
+
 2011-05-24
 ----------
 
