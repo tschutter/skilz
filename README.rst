@@ -34,3 +34,27 @@ In more detail, here are the rules (or as many as we have thought up thus far):
 * It is totally not acceptable to pull answers off the internet or use
   books for more than API or language references. Also, no fair
   calling up buddies at Intel/Microsoft/NASA/Google/...
+
+2010-11-29
+----------
+
+Write a program in any language that takes a integer parameter n and
+outputs each number from 0 to n in random order where each number
+appears only once.
+
+2010-12-06
+----------
+
+Find all the two-word compound words in a dictionary. A two-word
+compound word is a word in the dictionary that is the concatenation of
+exactly two other words in the dictionary. Assume input will be a
+number of lowercase words, one per line, in alphabetical order,
+numbering around, say, 100K. Generate output consisting of all the
+compound words, one per line, in alphabetical order.
+
+2010-12-13
+----------
+
+Given any integer 0 <= n <= 10000 not divisible by 2 or 5, find the
+number of digits in the smallest multiple of n that is a number which
+in decimal notation is a sequence of 1's.
