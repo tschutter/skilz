@@ -1,7 +1,7 @@
 skilz
 ======
 
-Weekly programming puzzles at the Boulder office.
+Programming puzzles to exercise your coding-fu.
 
 The Rules
 ---------
