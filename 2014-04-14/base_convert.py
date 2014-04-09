@@ -2,6 +2,11 @@
 
 """
 Convert values from one base to another.
+
+TODO:
+  regexp: ^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$
+  strip out ., adjusting shift
+  convert mantissa
 """
 
 import argparse
@@ -74,7 +79,9 @@ def base10ToOutputv2(value, shift, outputBase):
 
 def main():
     """main"""
-    parser = argparse.ArgumentParser("Convert values from one base to another.")
+    parser = argparse.ArgumentParser(
+        description="Convert values from one base to another."
+    )
     parser.add_argument(
         "base",
         type=int,
@@ -94,8 +101,7 @@ def main():
     for line in sys.stdin:
         (inputBase, inputValue) = line.split()
         inputBase = int(inputBase)
-        if args.debug:
-            print("{}{}".format(inputValue, baseString(inputBase)), end=" = ")
+        print("{}{}".format(inputValue, baseString(inputBase)), end=" = ")
 
         (base10Value, shift) = inputToBase10v2(inputValue, inputBase)
         if args.debug:
@@ -106,12 +112,7 @@ def main():
             print("{}{}".format(base10Value, baseString(10)), end=" = ")
 
         outputValue = base10ToOutput(base10Value, outputBase)
-        print(
-            "{}{}".format(
-                outputValue,
-                baseString(outputBase) if args.debug else ""
-            )
-        )
+        print("{}{}".format(outputValue, baseString(outputBase)))
     return 0
 
 if __name__ == "__main__":
