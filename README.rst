@@ -284,7 +284,7 @@ Example given an argument of 10:
 +--------+--------+
 
 Bases greater than 1 and less than 36 are valid. Assume the extended
-hex base 35 alphabet and a maximum of base 35:
+hex base 35 alphabet and a maximum of base 36:
 
 +-------+--------+-+-------+--------+-+-------+--------+-+-------+--------+
 | Value | Symbol | | Value | Symbol | | Value | Symbol | | Value | Symbol |
