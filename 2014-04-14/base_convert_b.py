@@ -79,7 +79,7 @@ def base10ToOutput(value, outputBase):
     result = ""
     while value != 0:
         value, remainder = divmod(value, outputBase)
-        result = DIGITS[remainder] + result
+        result = DIGITS[int(remainder)] + result
     return result
 
 def main():
