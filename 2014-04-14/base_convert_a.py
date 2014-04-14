@@ -7,16 +7,13 @@ Changed from original spec to specify output base in the input stream
 rather than the command line.  This makes demonstration easier.
 """
 
-import argparse
-import decimal
-import re
 import string
 import sys
 
 DEBUG = True
 
 def baseString(base):
-    """Return a printable version of a base."""
+    """Return a Unicode printable version of a base."""
     (dig0, dig1) = divmod(base, 10)
     if dig0 == 0:
         printable = chr(0x2080 + base)
@@ -26,7 +23,7 @@ def baseString(base):
 
 DIGITS = string.digits + string.ascii_uppercase
 
-def intBaseNToBase10(inputValue, inputBase):
+def baseNToBase10(inputValue, inputBase):
     """
     Given an input integer string and an input base, return a
     base10 integer.
@@ -43,37 +40,7 @@ def intBaseNToBase10(inputValue, inputBase):
             result = result * inputBase + DIGITS.index(digit)
     return sign * result
 
-# (?![-+]) allows E only if it is not followed by - or +
-RE_FLOAT = re.compile(
-    "^([-+]?[0-9A-Z]+)(?:\.([0-9A-Z](?![-+]))+)?(?:[eE]([-+][0-9A-Z]+))?$"
-)
-
-def floatBaseNToBase10(inputValue, inputBase):
-    """Calculate a base10 decimal from an input value and an input base."""
-    match = RE_FLOAT.match(inputValue.upper())
-    whole = match.group(1)
-    fraction = match.group(2)
-    exponent = match.group(3)
-    if exponent:
-        exponent = intBaseNToBase10(exponent, inputBase)
-    else:
-        exponent = 0
-    if fraction:
-        if DEBUG and False:
-            print("\nexponent = {}, fraction = {}".format(exponent, fraction))
-        exponent -= len(fraction)
-        value = whole + fraction
-        if DEBUG and False:
-            print("exponent = {}, value = {}".format(exponent, value))
-    else:
-        value = whole
-    value = decimal.Decimal(intBaseNToBase10(value, inputBase))
-    multiplier = decimal.Decimal(inputBase) ** decimal.Decimal(exponent)
-    value = value * multiplier
-    return value
-
 def base10ToOutput(value, outputBase):
-    print(value, outputBase)
     """Given a base10 integer and an output base, return an output string."""
     if value < 0:
         return "-" + base10ToOutput(-value, outputBase)
@@ -93,7 +60,7 @@ def main():
         outputBase = int(outputBase)
         print("{}{}".format(inputValue, baseString(inputBase)), end=" = ")
 
-        base10Value = floatBaseNToBase10(inputValue, inputBase)
+        base10Value = baseNToBase10(inputValue, inputBase)
         if DEBUG:
             print("{}{}".format(base10Value, baseString(10)), end=" = ")
 
